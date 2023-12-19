@@ -1,0 +1,32 @@
+[debug] [2023-12-19T10:09:46.688Z] ----------------------------------------------------------------------
+[debug] [2023-12-19T10:09:46.689Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ADMIN\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only firestore:rules --debug
+[debug] [2023-12-19T10:09:46.690Z] CLI Version:   13.0.2
+[debug] [2023-12-19T10:09:46.690Z] Platform:      win32
+[debug] [2023-12-19T10:09:46.690Z] Node Version:  v18.17.1
+[debug] [2023-12-19T10:09:46.691Z] Time:          Tue Dec 19 2023 15:39:46 GMT+0530 (India Standard Time)
+[debug] [2023-12-19T10:09:46.691Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-19T10:09:46.754Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-19T10:09:46.756Z] > authorizing via signed-in user (samarth1mishra@gmail.com)
+[debug] [2023-12-19T10:09:46.757Z] [iam] checking project todo-171d0 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2023-12-19T10:09:46.759Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/todo-171d0:testIamPermissions [none]
+[debug] [2023-12-19T10:09:46.759Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/todo-171d0:testIamPermissions x-goog-quota-user=projects/todo-171d0
+[debug] [2023-12-19T10:09:46.760Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/todo-171d0:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2023-12-19T10:09:48.316Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/todo-171d0:testIamPermissions 200
+[debug] [2023-12-19T10:09:48.317Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/todo-171d0:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[info] 
+[info] === Deploying to 'todo-171d0'...
+[info] 
+[info] i  deploying firestore 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[debug] [2023-12-19T10:09:48.321Z] [rules read error] Error: ENOENT: no such file or directory, open 'D:\ToDo-App-main\ firestore.rules'
+    at Object.openSync (node:fs:603:3)
+    at Object.readFileSync (node:fs:471:35)
+    at RulesDeploy.addFile (C:\Users\ADMIN\AppData\Roaming\npm\node_modules\firebase-tools\lib\rulesDeploy.js:40:22)
+    at prepareRules (C:\Users\ADMIN\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\firestore\prepare.js:9:17)
+    at default_1 (C:\Users\ADMIN\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\firestore\prepare.js:52:13)
+    at chain (C:\Users\ADMIN\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:38:15)
+    at deploy (C:\Users\ADMIN\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:95:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Error reading rules file  firestore.rules
