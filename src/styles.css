@@ -86,4 +86,10 @@
   .todo-box .input-box {
     margin-bottom: 20px; /* Adjust the spacing between input box and list items */
   }
+  .timestamp {
+    display: block;
+    text-align: left; 
+    margin-top: 5px;
+  }
+  
   

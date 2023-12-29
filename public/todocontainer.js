@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Items from './Items';
-import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc } from 'firebase/firestore';
+import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc,serverTimestamp} from 'firebase/firestore';
 import { db } from './config/firebase';
 import './styles.css';
 
 const TodoContainer = () => {
   const [work, setWork] = useState([]);
   const [inputitems, setInputitems] = useState('');
+  const [timestamp,setTimestamp]=useState('');
 
   const getTodo = async () => {
     try {
@@ -24,11 +25,21 @@ const TodoContainer = () => {
         console.log('Input is empty. Please enter a valid todo text.');
         return;
       }
+      const currentDate=new Date();
+      const formatDate=currentDate.toLocaleString('en-US',{
+        year:'numeric',
+        month:'numeric',
+        date:'numeric',
+        hour:'numeric',
+        minute:'numeric',
+
+      });
 
       const todoCollection = collection(db, 'work');
-      const newTodoRef = await addDoc(todoCollection, { text: todoText, completed: false });
-      console.log('Todo added successfully with ID:', newTodoRef.id);
+      const newTodoRef = await addDoc(todoCollection, { text: todoText, completed: false ,timestamp: formatDate });
+        console.log('Todo added successfully with ID:', newTodoRef.id,formatDate);
       setInputitems('');
+      setTimestamp(formatDate);
       getTodo();
     } catch (error) {
       console.error('Error adding todo:', error);
@@ -81,6 +92,9 @@ const TodoContainer = () => {
           Submit
         </button>
       </div>
+      {/* <div className="timestamp">
+        {timestamp && <p>TimeStamp : {timestamp}</p>}
+      </div> */}
       <div className="todo-box">
         <div className="ITEM">
           <Items todos={work} handleToggle={handleToggle} handledelete={handledelete} />

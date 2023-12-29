@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 
 const Items = ({ todos, handleToggle, handledelete }) => {
   return (
@@ -8,6 +9,9 @@ const Items = ({ todos, handleToggle, handledelete }) => {
           <span style={{ textDecoration: todo.completed ? 'line-through' : 'none', marginRight: '10px', flex: 1 }}>
             {todo.text}
           </span>
+          {todo.timestamp && (
+           <span className="timestamp" style={{marginLeft:'50px',fontSize:'14px'}}>Timestamp: {todo.timestamp}</span>
+         )}
           <button
             className="toggle-button"
             style={{
@@ -17,8 +21,8 @@ const Items = ({ todos, handleToggle, handledelete }) => {
               marginTop:'20px',
               fontSize: '14px',
               borderRadius: '5px',
-              marginRight: '250px',
-              marginLeft:'250px',
+              marginRight: '100px',
+              marginLeft:'100px',
               border: 'none'
 
             }}

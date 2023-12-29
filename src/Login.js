@@ -14,12 +14,14 @@ const Login = ({onLogin}) => {
       if (action === 'Sign Up') {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         console.log("User Signed Up", userCredential.user);
-        setAction('Login');
+        await setAction('Login');
+        console.log(action);
         onLogin();
       } else if (action === 'Login') {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         console.log("User Logged In", userCredential.user);
-        setAction('Sign Up');
+        await setAction('Sign Up');
+        console.log(action);
         onLogin();
       }
     } catch (error) {
